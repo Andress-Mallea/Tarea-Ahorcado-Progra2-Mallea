@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 class Ahorcado
 {
@@ -13,17 +12,17 @@ class Ahorcado
     public class Game{
         public int Intentos = 5;
         private List<string> PalabrasSelecionables = new List<string> { "programacion", "computadora", "ahorcado", "inteligencia", "robot", "semilla", "collar", "mueble", "nuemros", "docente", "letras", "crimen", "espada", "veintiuno", "generaciones", "dragon", "departamento" };
-        public Dibujo Dibujo;
+        public Dibujo dibujo;
         public Game(int intentos){
             if(intentos >= 5 && intentos<=7 ){
                 Intentos = intentos;
-                Dibujo = new Dibujo(intentos);
+                dibujo = new Dibujo(intentos);
             }       
             else{
                 Console.WriteLine("Valor no Valido");
                 Console.WriteLine("Se Establecera el numero de vidas estandar");
                 Intentos = 5;
-                Dibujo = new Dibujo(5);
+                dibujo = new Dibujo(5);
             }
         }
 
@@ -34,7 +33,7 @@ class Ahorcado
             List<string> LetrasYaIntentadas = new List<string>();
             List<string> LetrasJugador = new List<string>();
             string PalabraJugador= "";
-            string DibujoAhorcado1 = Dibujo.DibujoAhorcado(0);
+            string DibujoAhorcado1 = dibujo.DibujoAhorcado(0);
             for(int i = 0; i < PalabraRandom.Length; i++){
                 LetrasJugador.Add("_");
                 PalabraJugador += "_";
@@ -59,6 +58,15 @@ class Ahorcado
             string letra = Console.ReadLine();
             Console.WriteLine();
             if(letra.Length == 1){
+                if(letra[0] < 97 || letra[0] > 122){
+                    if(letra[0] != 'ñ'){
+                    Console.WriteLine("Charcter invalido solo introdusca letras minusculas");
+                    Console.WriteLine("########################################################################");
+                    Console.WriteLine("========================================================================");
+                    continue;
+                    }
+                    
+                }
                 if (LetrasYaIntentadas.Contains(letra)){
                     Console.WriteLine("Ya haz introducido esa Letra antes");
                     Console.WriteLine("########################################################################");
@@ -82,7 +90,7 @@ class Ahorcado
                 }
                 else
                 {
-                    DibujoAhorcado1 = Dibujo.DibujoAhorcado(1);
+                    DibujoAhorcado1 = dibujo.DibujoAhorcado(1);
                     Console.WriteLine("La Palabra no Contiene esa letra");
                     Console.WriteLine("########################################################################");
                     Console.WriteLine("========================================================================");
@@ -100,7 +108,7 @@ class Ahorcado
                 continue;
             }
             else{
-                Console.Write("Ingresa solo una letra porfavor");
+                Console.WriteLine("Ingresa solo una letra porfavor");
                 Console.WriteLine("########################################################################");
                 Console.WriteLine("========================================================================");
                 continue;
@@ -153,6 +161,8 @@ class Ahorcado
                         int Num3 = Num2[0] -'0';
                         if(Num3 >= 5 && Num3<=7 ){
                             Intentos = Num3;
+                            dibujo.partes = Num3;
+                            dibujo.Vidas = Num3;
                             Console.WriteLine("########################################################################");
                             Console.WriteLine("========================================================================");
                             Console.WriteLine($"Se a cambiado el nuemro de intentos a: {Intentos}");
