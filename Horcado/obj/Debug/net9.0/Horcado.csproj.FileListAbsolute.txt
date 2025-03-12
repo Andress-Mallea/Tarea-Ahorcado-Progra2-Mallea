@@ -1,0 +1,14 @@
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\bin\Debug\net9.0\Horcado.exe
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\bin\Debug\net9.0\Horcado.deps.json
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\bin\Debug\net9.0\Horcado.runtimeconfig.json
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\bin\Debug\net9.0\Horcado.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\bin\Debug\net9.0\Horcado.pdb
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.AssemblyInfoInputs.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.AssemblyInfo.cs
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.csproj.CoreCompileInputs.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\refint\Horcado.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.pdb
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\Horcado.genruntimeconfig.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Horcado\obj\Debug\net9.0\ref\Horcado.dll
