@@ -34,9 +34,19 @@ class Ahorcado
             List<string> LetrasJugador = new List<string>();
             string PalabraJugador= "";
             string DibujoAhorcado1 = dibujo.DibujoAhorcado(0);
+            int Aux = rand.Next(PalabraRandom.Length);
+            string Letra_Random = "";
+            Letra_Random += PalabraRandom[Aux];
             for(int i = 0; i < PalabraRandom.Length; i++){
-                LetrasJugador.Add("_");
-                PalabraJugador += "_";
+                if(i == Aux){
+                    LetrasJugador.Add(Letra_Random);
+                    PalabraJugador += Letra_Random;
+                }
+                else{
+                    LetrasJugador.Add("_");
+                    PalabraJugador += "_";  
+                }
+                
             }
             Console.WriteLine("########################################################################");
             Console.WriteLine("========================================================================");
@@ -50,8 +60,6 @@ class Ahorcado
             Console.WriteLine("########################################################################");
             while (Vidas > 0 && PalabraJugador != PalabraRandom)
         {
-            Console.WriteLine("########################################################################");
-            Console.WriteLine("========================================================================");
             Console.WriteLine($"Palabra: {PalabraJugador}");
             Console.WriteLine($"Intentos restantes: {Vidas}      {DibujoAhorcado1}");
             Console.Write("Ingresa una letra: ");
@@ -60,25 +68,25 @@ class Ahorcado
             if(letra.Length == 1){
                 if(letra[0] < 97 || letra[0] > 122){
                     if(letra[0] != 'ñ'){
-                    Console.WriteLine("Charcter invalido solo introdusca letras minusculas");
                     Console.WriteLine("########################################################################");
                     Console.WriteLine("========================================================================");
+                    Console.WriteLine("Charcter invalido solo introdusca letras minusculas");
                     continue;
                     }
                     
                 }
                 if (LetrasYaIntentadas.Contains(letra)){
-                    Console.WriteLine("Ya haz introducido esa Letra antes");
                     Console.WriteLine("########################################################################");
                     Console.WriteLine("========================================================================");
+                    Console.WriteLine("Ya haz introducido esa Letra antes");
                     continue;
                 }
                 LetrasYaIntentadas.Add(letra);
                 if (PalabraRandom.Contains(letra))
                 {
-                    Console.WriteLine("**** Esta letra se encuentra en la palabra ****");
                     Console.WriteLine("########################################################################");
                     Console.WriteLine("========================================================================");
+                    Console.WriteLine("**** Esta letra se encuentra en la palabra ****");
                     for (int i = 0; i < PalabraRandom.Length; i++)
                     {
                         if (PalabraRandom[i] == letra[0]){
@@ -91,9 +99,9 @@ class Ahorcado
                 else
                 {
                     DibujoAhorcado1 = dibujo.DibujoAhorcado(1);
-                    Console.WriteLine("La Palabra no Contiene esa letra");
                     Console.WriteLine("########################################################################");
                     Console.WriteLine("========================================================================");
+                    Console.WriteLine("La Palabra no Contiene esa letra");
                     Vidas--;
                 }
                 PalabraJugador = "";
@@ -102,15 +110,15 @@ class Ahorcado
                 }
             }
             else if(letra.Length == 0){
-                Console.Write("Ingresa una letra porfavor");
                 Console.WriteLine("########################################################################");
                 Console.WriteLine("========================================================================");
+                Console.Write("Ingresa una letra porfavor");
                 continue;
             }
             else{
-                Console.WriteLine("Ingresa solo una letra porfavor");
                 Console.WriteLine("########################################################################");
                 Console.WriteLine("========================================================================");
+                Console.WriteLine("Ingresa solo una letra porfavor");
                 continue;
             }
             
@@ -118,17 +126,29 @@ class Ahorcado
 
         if (PalabraJugador == PalabraRandom){
             Console.WriteLine("========================================================================");
-            Console.WriteLine("########################################################################");
-            Console.WriteLine($"|| Felicidades ganaste el juego la palabra es: {PalabraRandom}  ||  {DibujoAhorcado1}");
-            Console.WriteLine("########################################################################");
+            Console.WriteLine("************************************************************************");
+            Console.WriteLine($"|| Felicidades ganaste el juego la palabra es: {PalabraRandom}   ||  {DibujoAhorcado1}");
+            Console.WriteLine("||Quieres volver al  menu?                                             ||");
+            Console.WriteLine("||Si quiere volver al menu introdusca 1 y si quiere salir introdusca 2:||");
+            Console.WriteLine("|| 1. Volver  al menu                                                  ||");
+            Console.WriteLine("|| 2. Salir                                                            ||");
             Console.WriteLine("========================================================================");
+            Console.WriteLine("########################################################################");
+            Volver_a_Menu();
+
+
         }
         else{
             Console.WriteLine("==========================================================================");
             Console.WriteLine("##########################################################################");
             Console.WriteLine($"|| Has acabado con todas tus vidas Perdiste La palabra era: {PalabraRandom} || {DibujoAhorcado1}");
-            Console.WriteLine("##########################################################################");
+            Console.WriteLine("||Quieres volver al menu?                                               ||");
+            Console.WriteLine("||Si quiere volver al menu introdusca 1 y si quiere salir introdusca 2: ||");
+            Console.WriteLine("|| 1. Volver  al menu                                                   ||");
+            Console.WriteLine("|| 2. Salir                                                             ||");
             Console.WriteLine("==========================================================================");
+            Console.WriteLine("##########################################################################");
+            Volver_a_Menu();
         }
         }
         public bool Menu(){
@@ -140,7 +160,7 @@ class Ahorcado
                 Console.WriteLine("3. Salir ");
                 Console.WriteLine("========================================================================");
                 Console.WriteLine("########################################################################");
-                Console.WriteLine("Introdusca que quiere hacer");
+                Console.Write("Introdusca que quiere hacer: ");
                 Opcion = Console.ReadLine();
                 if(Opcion == "1"){
                     IniciarElJUego();
@@ -202,6 +222,46 @@ class Ahorcado
                     return Menu();
                 }
             }
+        public void Volver_a_Menu(){
+            Console.Write("Introduzca que opcion quiere hacer: ");
+            string Opcion2;
+            Opcion2 = Console.ReadLine();
+            if(Opcion2.Length == 1 ){
+                if(Opcion2 == "1"){
+                    dibujo.reiniciar_dibujo();
+                    Menu();
+                }
+                else if(Opcion2 == "2"){
+                    
+                }
+                else if(Opcion2 != "2" || Opcion2 != "1"){
+                    Console.WriteLine("________________________________");
+                    Console.WriteLine("||Introduzca una opcion valida||");
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("==========================================================================");
+                    Console.WriteLine("##########################################################################");
+                    Console.WriteLine("||Si quiere volver al menu introdusca 1 y si quiere salir introdusca 2: ||");
+                    Console.WriteLine("|| 1. Volver  al menu                                                   ||");
+                    Console.WriteLine("|| 2. Salir                                                             ||");
+                    Console.WriteLine("##########################################################################");
+                    Console.WriteLine("==========================================================================");
+                    Volver_a_Menu();
+                } 
+            }
+            else{
+                    Console.WriteLine("________________________________");
+                    Console.WriteLine("||Introduzca una opcion valida||");
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("==========================================================================");
+                    Console.WriteLine("##########################################################################");
+                    Console.WriteLine("||Si quiere volver al menu introdusca 1 y si quiere salir introdusca 2: ||");
+                    Console.WriteLine("|| 1. Volver  al menu                                                   ||");
+                    Console.WriteLine("|| 2. Salir                                                             ||");
+                    Console.WriteLine("##########################################################################");
+                    Console.WriteLine("==========================================================================");
+                    Volver_a_Menu();
+            }
+        }
     }
     public class Dibujo{
         public int partes;
@@ -432,6 +492,16 @@ class Ahorcado
                 }
             return ahorcado;
             }
+        }
+        public void reiniciar_dibujo(){
+            ahorcado = @"
+            _____________        
+            ||/          
+            ||          
+            ||         
+            ||         
+        ___/__\___
+                ";
         }
     }
 }
